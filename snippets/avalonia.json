@@ -1,0 +1,191 @@
+{
+  "Window": {
+    "prefix": "avwindow",
+    "body": [
+      "<Window xmlns=\"https://github.com/avaloniaui\"",
+      "        xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"",
+      "        xmlns:d=\"http://schemas.microsoft.com/expression/blend/2008\"",
+      "        xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\"",
+      "        mc:Ignorable=\"d\"",
+      "        x:Class=\"${1:Namespace}.${2:ClassName}\"",
+      "        Title=\"${3:Window Title}\">",
+      "    $0",
+      "</Window>"
+    ],
+    "description": "Avalonia Window"
+  },
+  "UserControl": {
+    "prefix": "avusercontrol",
+    "body": [
+      "<UserControl xmlns=\"https://github.com/avaloniaui\"",
+      "             xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"",
+      "             xmlns:d=\"http://schemas.microsoft.com/expression/blend/2008\"",
+      "             xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\"",
+      "             mc:Ignorable=\"d\"",
+      "             x:Class=\"${1:Namespace}.${2:ClassName}\">",
+      "    $0",
+      "</UserControl>"
+    ],
+    "description": "Avalonia UserControl"
+  },
+  "StackPanel": {
+    "prefix": "avstack",
+    "body": [
+      "<StackPanel Orientation=\"${1|Vertical,Horizontal|}\">",
+      "    $0",
+      "</StackPanel>"
+    ],
+    "description": "Avalonia StackPanel"
+  },
+  "Grid": {
+    "prefix": "avgrid",
+    "body": [
+      "<Grid RowDefinitions=\"${1:Auto,*}\" ColumnDefinitions=\"${2:*,*}\">",
+      "    $0",
+      "</Grid>"
+    ],
+    "description": "Avalonia Grid with row/column definitions"
+  },
+  "Button": {
+    "prefix": "avbutton",
+    "body": [
+      "<Button Content=\"${1:Click Me}\"",
+      "        Command=\"{Binding ${2:Command}}\"",
+      "        $0 />"
+    ],
+    "description": "Avalonia Button with command binding"
+  },
+  "TextBlock": {
+    "prefix": "avtextblock",
+    "body": [
+      "<TextBlock Text=\"${1:{Binding $2}}\"",
+      "           $0 />"
+    ],
+    "description": "Avalonia TextBlock"
+  },
+  "TextBox": {
+    "prefix": "avtextbox",
+    "body": [
+      "<TextBox Text=\"{Binding ${1:Property}, Mode=${2|TwoWay,OneWay,OneTime|}}\"",
+      "         Watermark=\"${3:Placeholder}\"",
+      "         $0 />"
+    ],
+    "description": "Avalonia TextBox with binding"
+  },
+  "ItemsControl": {
+    "prefix": "avitemscontrol",
+    "body": [
+      "<ItemsControl ItemsSource=\"{Binding ${1:Items}}\">",
+      "    <ItemsControl.ItemTemplate>",
+      "        <DataTemplate>",
+      "            $0",
+      "        </DataTemplate>",
+      "    </ItemsControl.ItemTemplate>",
+      "</ItemsControl>"
+    ],
+    "description": "Avalonia ItemsControl with DataTemplate"
+  },
+  "ListBox": {
+    "prefix": "avlistbox",
+    "body": [
+      "<ListBox ItemsSource=\"{Binding ${1:Items}}\"",
+      "         SelectedItem=\"{Binding ${2:SelectedItem}}\">",
+      "    <ListBox.ItemTemplate>",
+      "        <DataTemplate>",
+      "            $0",
+      "        </DataTemplate>",
+      "    </ListBox.ItemTemplate>",
+      "</ListBox>"
+    ],
+    "description": "Avalonia ListBox with selection binding"
+  },
+  "DataTemplate": {
+    "prefix": "avdatatemplate",
+    "body": [
+      "<DataTemplate DataType=\"${1:vm:MyViewModel}\">",
+      "    $0",
+      "</DataTemplate>"
+    ],
+    "description": "Avalonia DataTemplate"
+  },
+  "Style": {
+    "prefix": "avstyle",
+    "body": [
+      "<Style Selector=\"${1:Button}\">",
+      "    <Setter Property=\"${2:Background}\" Value=\"${3:#FF0000}\" />",
+      "    $0",
+      "</Style>"
+    ],
+    "description": "Avalonia Style with Selector"
+  },
+  "Binding": {
+    "prefix": "avbinding",
+    "body": [
+      "{Binding ${1:Property}, Mode=${2|OneWay,TwoWay,OneTime,OneWayToSource|}}"
+    ],
+    "description": "Avalonia data binding expression"
+  },
+  "CompiledBinding": {
+    "prefix": "avcompiledbinding",
+    "body": [
+      "{CompiledBinding ${1:Property}, DataType=${2:vm:MyViewModel}}"
+    ],
+    "description": "Avalonia compiled binding expression"
+  },
+  "Design.DataContext": {
+    "prefix": "avdesigndc",
+    "body": [
+      "d:DesignWidth=\"${1:400}\"",
+      "d:DesignHeight=\"${2:300}\"",
+      "x:DataType=\"${3:vm:MainViewModel}\""
+    ],
+    "description": "Avalonia design-time data context"
+  },
+  "Border": {
+    "prefix": "avborder",
+    "body": [
+      "<Border BorderBrush=\"${1:Gray}\"",
+      "        BorderThickness=\"${2:1}\"",
+      "        CornerRadius=\"${3:4}\"",
+      "        Padding=\"${4:8}\">",
+      "    $0",
+      "</Border>"
+    ],
+    "description": "Avalonia Border"
+  },
+  "DockPanel": {
+    "prefix": "avdockpanel",
+    "body": [
+      "<DockPanel LastChildFill=\"${1|True,False|}\">",
+      "    $0",
+      "</DockPanel>"
+    ],
+    "description": "Avalonia DockPanel"
+  },
+  "Menu": {
+    "prefix": "avmenu",
+    "body": [
+      "<Menu DockPanel.Dock=\"Top\">",
+      "    <MenuItem Header=\"_${1:File}\">",
+      "        <MenuItem Header=\"_${2:Open}\" Command=\"{Binding ${3:OpenCommand}}\" />",
+      "        <Separator />",
+      "        <MenuItem Header=\"E_${4:xit}\" Command=\"{Binding ${5:ExitCommand}}\" />",
+      "    </MenuItem>",
+      "</Menu>"
+    ],
+    "description": "Avalonia Menu with MenuItems"
+  },
+  "TabControl": {
+    "prefix": "avtabcontrol",
+    "body": [
+      "<TabControl>",
+      "    <TabItem Header=\"${1:Tab 1}\">",
+      "        $0",
+      "    </TabItem>",
+      "    <TabItem Header=\"${2:Tab 2}\">",
+      "    </TabItem>",
+      "</TabControl>"
+    ],
+    "description": "Avalonia TabControl"
+  }
+}

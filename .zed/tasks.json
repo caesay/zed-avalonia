@@ -1,0 +1,16 @@
+[
+  {
+    "label": "Avalonia: Open Code-Behind (.axaml → .axaml.cs)",
+    "command": "zed \"${ZED_FILE}.cs\"",
+    "reveal": "never",
+    "hide": "on_success",
+    "use_new_terminal": false
+  },
+  {
+    "label": "Avalonia: Open Markup (.axaml.cs → .axaml)",
+    "command": "zed \"${ZED_DIRNAME}/${ZED_STEM}\"",
+    "reveal": "never",
+    "hide": "on_success",
+    "use_new_terminal": false
+  }
+]
