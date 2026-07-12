@@ -8,15 +8,17 @@ Avalonia UI support for the [Zed editor](https://zed.dev) — syntax highlightin
 - Code folding for elements and comments
 - Document outline showing element structure
 - 18 Avalonia-specific snippets (`avwindow`, `avbutton`, `avgrid`, etc.)
-- Language server support (csharp-ls, OmniSharp, or Roslyn)
+- AXAML language server support via [axsg-lsp](https://github.com/wieslawsoltes/XamlToCSharpGenerator)
 
 ## Requirements
 
-A C# language server must be installed. [csharp-ls](https://github.com/razzmatazz/csharp-language-server) is recommended:
+The AXAML language server, [axsg-lsp](https://github.com/wieslawsoltes/XamlToCSharpGenerator), requires the [.NET 10 SDK](https://dotnet.microsoft.com/download). Install it as a global tool:
 
 ```sh
-dotnet tool install --global csharp-ls
+dotnet tool install --global XamlToCSharpGenerator.LanguageServer.Tool --prerelease
 ```
+
+Make sure `~/.dotnet/tools` is on your `PATH`.
 
 ## Installation
 
@@ -28,29 +30,27 @@ Open the command palette (`Cmd+Shift+P`), search "Extensions", and install "Aval
 
 Clone this repo and add it as a dev extension in Zed:
 
-1. Clone: `git clone https://github.com/cwhittl/zed-avalonia.git`
+1. Clone: `git clone https://github.com/caesay/zed-avalonia.git`
 2. In Zed, open the command palette and run `zed: install dev extension`
 3. Select the cloned directory
 
-## Language Server Configuration
+## Language Server
 
-The extension supports three C# language servers. By default all three are registered — disable the ones you don't use in your Zed settings (`~/.config/zed/settings.json`):
+The extension registers the [axsg-lsp](https://github.com/wieslawsoltes/XamlToCSharpGenerator) language server for `.axaml` files, providing completion, diagnostics, hover, navigation, and semantic highlighting.
+
+> **Note:** AXAML completion reflects over your project's compiled assemblies, so build the project (`dotnet build`) at least once for the server to resolve types.
+
+To disable it, set in your Zed settings (`~/.config/zed/settings.json`):
 
 ```json
 {
   "languages": {
     "Avalonia": {
-      "language_servers": ["csharp-ls", "!omnisharp", "!roslyn"]
+      "language_servers": ["!axsg-lsp"]
     }
   }
 }
 ```
-
-| Server | Binary | Install |
-|--------|--------|---------|
-| csharp-ls | `csharp-ls` | `dotnet tool install --global csharp-ls` |
-| OmniSharp | `OmniSharp` or `omnisharp` | [omnisharp-roslyn](https://github.com/OmniSharp/omnisharp-roslyn) |
-| Roslyn | `Microsoft.CodeAnalysis.LanguageServer` | Included with .NET SDK |
 
 ## Snippets
 
